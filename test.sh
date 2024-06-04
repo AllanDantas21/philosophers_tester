@@ -18,6 +18,12 @@ run_test_case() {
     CASE=$2
     EXPECTED_OUTCOME=$3
     FONT_COLOUR_BG=''
+    GREEN="\033[32m"
+    DIED_FLAG=''
+    RESET="\033[0m"
+    YELLOW="\033[33m"
+    RED="\033[31m"
+    BLINK="\033[5m"
 
     i=1
     time=0.1
@@ -25,24 +31,32 @@ run_test_case() {
     if [[ $EXPECTED_OUTCOME == "should die" ]]; then
         COLOUR_BG="\e[1;31mTest:"
         FONT_COLOUR_BG="\e[41;30m"
+	D_FLAG="TRUE"
     else
         COLOUR_BG="\e[1;32mTest:"
         FONT_COLOUR_BG="\e[42;30m"
+	D_FLAG="FALSE"
     fi
 
     mkdir -p "$RESULTS_FOLDER/$CASE_NO"
     echo -e "$FONT_COLOUR_BG $CASE_NO: $CASE $EXPECTED_OUTCOME \e[0m"
     while [ $i -le $NB_OF_TESTS ]; do
         echo -e "$COLOUR_BG $i\e[0m"
-        echo -e "${BLINK}${YELLOW}Testing${RESET}"
+        echo -e "${BLINK} ${YELLOW}Testing ${RESET}"
         $BIN_PATH $CASE > "$RESULTS_FOLDER/$CASE_NO/test$i"
 
         die_count=$(grep -c 'die' "$RESULTS_FOLDER/$CASE_NO/test$i")
 
-        if [ "$die_count" -eq 1 ]; then
-            echo -e "${GREEN}Success: Exactly one philosopher died as expected.${RESET}"
-        else
-            echo -e "${RED}Failure: Unexpected number of philosophers died (${die_count}).${RESET}"
+        if [ "$D_FLAG" == "TRUE" ] && [ "$die_count" -eq 1 ]; then
+            echo -e "${GREEN}✅ Success: One philosopher died as expected.${RESET}"
+   	elif [ "$D_FLAG" == "TRUE" ]; then
+            echo -e "${RED}❌ Failure: No philosopher died. (${die_count}).${RESET}"
+        fi
+
+	if [ "$D_FLAG" == "FALSE" ] && [ "$die_count" -eq 0 ]; then
+            echo -e "${GREEN}✅ Success: No philosopher died.${RESET}"
+    	elif [ "$D_FLAG" == "FALSE" ]; then
+            echo -e "${RED}❌ Failure: One philosopher died (${die_count}).${RESET}"
         fi
 
         sleep $time
