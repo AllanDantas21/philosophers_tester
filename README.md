@@ -6,7 +6,9 @@ Teste da parte mandatoria e testes extras da philosophers
 ### into your philo folder:
 
   ```Bash
-git clone git@github.com:AllanDantas21/philosophers_tester.git && cp philosophers_tester/test.sh . && rm -rf philosophers_tester
+git clone git@github.com:AllanDantas21/philosophers_tester.git && 
+cp philosophers_tester/test.sh . && 
+rm -rf philosophers_tester
   ```
 
 ## Usages:
