@@ -77,7 +77,7 @@ run_test_case() {
 make -C $MAKEFILE_PATH && clear
 mkdir -p $RESULTS_FOLDER
 
-if   [ "$1" = "c" ] || [ "$1" = "C" ]; then
+if   [ "$1" = "R" ] || [ "$1" = "r" ]; then
 	rm -rf $RESULTS_FOLDER
 elif [ "$1" = "M" ] || [ "$1" = "m" ]; then
 	run_header

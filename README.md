@@ -14,10 +14,18 @@ rm -rf philosophers_tester
 ## Usos:
 ### Para os testes mandatorios:
 ```Bash
-./tester.sh M 
+./tester.sh m 
 ```
 
 ### Para os testes extras:
 ```Bash
 ./tester.sh
   ```
+### Para remover a pasta Results:
+```Bash
+./tester.sh r
+  ```
+
+## Sobre:
+após rodar o tester, ele cria uma pasta chamada Results
+que guarda o output de cada teste.
