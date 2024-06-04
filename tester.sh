@@ -75,18 +75,19 @@ run_test_case() {
 
 ## RUN SCRIPT
 make -C $MAKEFILE_PATH && clear
-run_header
 mkdir -p $RESULTS_FOLDER
 
 if   [ "$1" = "c" ] || [ "$1" = "C" ]; then
 	rm -rf $RESULTS_FOLDER
 elif [ "$1" = "M" ] || [ "$1" = "m" ]; then
+	run_header
 	run_test_case "Mandatory_01" "1 800 200 200" "should die"
 	run_test_case "Mandatory_02" "4 310 200 100" "should die"
 	run_test_case "Mandatory_03" "5 800 200 200 7" "not die"
 	run_test_case "Mandatory_04" "5 800 200 200 25" "not die"
 	run_test_case "Mandatory_05" "4 410 200 200 25" "not die"
 else
+	run_header
 	run_test_case "case_01" "1 400 100 100 7" "should die"
 	run_test_case "case_02" "1 800 200 200 7" "should die"
 	run_test_case "case_03" "2 100 200 200" "should die"
