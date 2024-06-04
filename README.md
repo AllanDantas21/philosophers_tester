@@ -7,17 +7,17 @@ Teste da parte mandatoria e testes extras da philosophers
 
   ```Bash
 git clone git@github.com:AllanDantas21/philosophers_tester.git && 
-cp philosophers_tester/test.sh . && 
+cp philosophers_tester/tester.sh . && 
 rm -rf philosophers_tester
   ```
 
 ## Usos:
 ### Para os testes mandatorios:
 ```Bash
-./test.sh M 
+./tester.sh M 
 ```
 
 ### Para os testes extras:
 ```Bash
-./test.sh
+./tester.sh
   ```
