@@ -2,7 +2,7 @@
 
 Teste da parte mandatoria e testes extras da philosophers
 
-## install: 
+## Instalação: 
 ### Na sua pasta Philo:
 
   ```Bash
@@ -13,11 +13,11 @@ rm -rf philosophers_tester
 
 ## Usos:
 ### Para os testes mandatorios:
-```C
+```Bash
 ./test.sh M 
 ```
 
 ### Para os testes extras:
-```C
+```Bash
 ./test.sh
   ```
