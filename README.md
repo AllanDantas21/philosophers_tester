@@ -3,7 +3,7 @@
 Teste da parte mandatoria e testes extras da philosophers
 
 ## install: 
-### into your philo folder:
+### Na sua pasta Philo:
 
   ```Bash
 git clone git@github.com:AllanDantas21/philosophers_tester.git && 
@@ -11,13 +11,13 @@ cp philosophers_tester/test.sh . &&
 rm -rf philosophers_tester
   ```
 
-## Usages:
-### To Mandatory tests:
-```Bash
+## Usos:
+### Para os testes mandatorios:
+```C
 ./test.sh M 
 ```
 
-### To Extras tests:
-```Bash
+### Para os testes extras:
+```C
 ./test.sh
   ```
