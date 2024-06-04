@@ -7,10 +7,12 @@ YELLOW="\033[33m"
 RED="\033[31m"
 BLINK="\033[5m"
 
-echo -e ${GREEN}" / ***************************************** \ "
-echo -e ${GREEN}" *           Philosophers Tester             * "
-echo -e ${GREEN}" *                              by: aldantas * "
-echo -e ${GREEN}" \ ***************************************** / " ${RESET}
+run_header() {
+	echo -e ${GREEN}" / ***************************************** \ "
+	echo -e ${GREEN}" *           Philosophers Tester             * "
+	echo -e ${GREEN}" *                              by: aldantas * "
+	echo -e ${GREEN}" \ ***************************************** / " ${RESET}
+}
 
 #NOME DO EXECUTAVEL
 BIN_PATH=./philo
@@ -73,6 +75,7 @@ run_test_case() {
 
 ## RUN SCRIPT
 make -C $MAKEFILE_PATH && clear
+run_header
 mkdir -p $RESULTS_FOLDER
 
 if [ "$1" == "M" ] || [ "$1" == "m" ]; then
