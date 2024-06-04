@@ -1,5 +1,17 @@
 #!/bin/bash
 
+## COLORS
+GREEN="\033[32m"
+RESET="\033[0m"
+YELLOW="\033[33m"
+RED="\033[31m"
+BLINK="\033[5m"
+
+echo -e ${GREEN}" / ***************************************** \ "
+echo -e ${GREEN}" *           Philosophers Tester             * "
+echo -e ${GREEN}" *                              by: aldantas * "
+echo -e ${GREEN}" \ ***************************************** / " ${RESET}
+
 #NOME DO EXECUTAVEL
 BIN_PATH=./philo
 
@@ -10,13 +22,6 @@ MAKEFILE_PATH="$SCRIPT_DIR"
 ## TEST PARAMETERS - CHANGE AS NEEDED
 NB_OF_TESTS=1
 RESULTS_FOLDER='results'
-
-## COLORS
-GREEN="\033[32m"
-RESET="\033[0m"
-YELLOW="\033[33m"  
-RED="\033[31m"
-BLINK="\033[5m"
 
 ## FUNÇAO
 run_test_case() {
