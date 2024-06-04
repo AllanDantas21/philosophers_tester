@@ -11,19 +11,20 @@ MAKEFILE_PATH="$SCRIPT_DIR"
 NB_OF_TESTS=1
 RESULTS_FOLDER='results'
 
-## TEST FUNCTION DEFINITION
-# Função de teste
+## COLORS
+GREEN="\033[32m"
+RESET="\033[0m"
+YELLOW="\033[33m"  
+RED="\033[31m"
+BLINK="\033[5m"
+
+## FUNÇAO
 run_test_case() {
     CASE_NO=$1
     CASE=$2
     EXPECTED_OUTCOME=$3
     FONT_COLOUR_BG=''
-    GREEN="\033[32m"
     DIED_FLAG=''
-    RESET="\033[0m"
-    YELLOW="\033[33m"
-    RED="\033[31m"
-    BLINK="\033[5m"
 
     i=1
     time=0.1
@@ -75,7 +76,6 @@ if [ "$1" == "M" ] || [ "$1" == "m" ]; then
 	run_test_case "Mandatory_03" "5 800 200 200 7" "not die"
 	run_test_case "Mandatory_04" "5 800 200 200 25" "not die"
 	run_test_case "Mandatory_05" "4 410 200 200 25" "not die"
-
 else
 	run_test_case "case_01" "1 400 100 100 7" "should die"
 	run_test_case "case_02" "1 800 200 200 7" "should die"
@@ -92,4 +92,5 @@ else
 	run_test_case "case_13" "5 400 100 100 7" "not die"
 	run_test_case "case_14" "5 800 200 200 7" "not die"
 fi
+
 make -C $MAKEFILE_PATH fclean
